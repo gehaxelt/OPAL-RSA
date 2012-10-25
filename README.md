@@ -16,4 +16,15 @@ Es ist nur beschränkt nutzbar, da nat ziemlich klein ist, und die Zahlen desweg
 - > e encrypt(number, pubkey, faktorn) -- Verschlüsselung
 - > e decrypt(chiffre, privkey, faktorn) -- Entschlüsselung
 
+##Funktionsfähigkeit##
+
+Der Code funktioniert leider nur bedingt. Denn für die Entschlüsselung bzw. Verschlüsselung entstehen u.a. große Zahlen, mit welchen Opal nicht umzugehen weiß und einen Fehler ausgibt.
+
+	mod(pow(text, pubkey),factorN)
+
+Die Verschlüsselung funktioniert dabei noch relativ gut. Die Entschlüsselung jedoch kaum mehr.
+
+Gruß
+
+gehaxelt
 
