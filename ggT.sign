@@ -1,0 +1,17 @@
+SIGNATURE ggT
+
+IMPORT Nat COMPLETELY
+IMPORT Int COMPLETELY
+
+-- Berechnet den größten gemeinsamen Teiler zweier Zahlen
+-- @param: Zahl x
+-- @param: Zahl y
+-- @return: Zahl z : gemeinsamer größter Teiler
+FUN ggT : nat ** nat -> nat
+
+-- Berechnet den größten gemeinsamen Teiler nach dem erweiterten euklidschen Algorithmus und liefert zusätzlich zwei Zahlen, für welche gilt: ax + by = ggT(a,b).
+-- @param: Zahl x
+-- @param: Zahl y
+-- @return: Dreier-Tupel d, x, y
+FUN eeA : int ** int -> int ** int ** int
+

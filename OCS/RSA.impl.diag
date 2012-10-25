@@ -1,0 +1,3 @@
+<3,19-21>HINT: local variable max hides constant max'Nat:nat
+<20,17>HINT: local name x is not used
+<20,23>HINT: local name y is not used

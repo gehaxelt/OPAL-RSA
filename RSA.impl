@@ -1,0 +1,58 @@
+IMPLEMENTATION RSA
+
+-- Berechnet eine Primzahl, welche unter der gegeben Zahl liegt
+-- @param: Zahl ab welcher eine Primzahl gefunden werden soll
+-- @return: Eine Primzahl unterhalb des Parameters
+DEF getPrime == \\max.
+	IF max < !"60" THEN findPrime(max)
+	ELSE
+	0
+	FI
+
+-- Berechnet den Faktor N des RSA-Verfahrens
+-- @param: Primzahl p
+-- @param: Primzahl q
+-- @return: Faktor N
+DEF getN == \\prime_p, prime_q.
+	prime_p*prime_q
+
+-- Berechnet Phi(N) des RSA-Verfahrens
+-- @param: Primzahl p
+-- @param: Primzahl q
+-- @return: Phi(N)
+DEF getPhiN == \\prime_p, prime_q.
+	(prime_p-1)*(prime_q-1)
+
+-- Berechnet den öffentlichen Schlüsselteil aus Phi(N)
+-- @param: Phi(N)
+-- @return: Öffentlicher Schlüsselteil
+DEF getE == \\phin.
+	findPrime(phin-1)
+
+-- Berechnet den privaten Schlüsselteil aus Phi(N) und E
+-- @param: Phi(N)
+-- @param: E
+-- @return: Privater Schlüsselteil
+DEF getD == \\phin, e.
+	LET 
+		(x, d, y) == eeA(e, phin)
+	IN
+		IF d < 0 THEN (d+phin)
+		ELSE d
+		FI
+
+-- Verschlüsselt eine Zahl mit dem öffentlichen Schlüssel
+-- @param: Zahl, welche verschlüsselt werden soll.
+-- @param: Öffentlicher Schlüsselteil
+-- @param: Faktor N
+-- @return: Verschlüsselte Zahl
+DEF encrypt == \\text, pubkey, factorN.
+	mod(pow(text,pubkey), factorN)
+
+-- Entschlüsselt eine Zahl mit dem privaten Schlüssel
+-- @param: Zahl, welche entschlüsselt werden soll.
+-- @param: Privater Schlüsselteil
+-- @param: Faktor N
+-- @return: Entschlüsselte Zahl
+DEF decrypt == \\chiffre, privkey, factorN.
+	mod(pow(chiffre, privkey), factorN) 

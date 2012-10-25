@@ -1,0 +1,48 @@
+SIGNATURE RSA
+IMPORT Nat COMPLETELY
+IMPORT Int COMPLETELY
+IMPORT PrimeCalculator COMPLETELY
+IMPORT ggT COMPLETELY
+
+-- Berechnet eine Primzahl, welche unter der gegeben Zahl liegt
+-- @param: Zahl ab welcher eine Primzahl gefunden werden soll
+-- @return: Eine Primzahl unterhalb des Parameters
+FUN getPrime : nat -> nat
+
+-- Berechnet den Faktor N des RSA-Verfahrens
+-- @param: Primzahl p
+-- @param: Primzahl q
+-- @return: Faktor N
+FUN getN : nat ** nat -> nat
+
+-- Berechnet Phi(N) des RSA-Verfahrens
+-- @param: Primzahl p
+-- @param: Primzahl q
+-- @return: Phi(N)
+FUN getPhiN : nat ** nat -> nat
+
+-- Berechnet den öffentlichen Schlüsselteil aus Phi(N)
+-- @param: Phi(N)
+-- @return: Öffentlicher Schlüsselteil
+FUN getE : nat -> nat
+
+-- Berechnet den privaten Schlüsselteil aus Phi(N) und E
+-- @param: Phi(N)
+-- @param: E
+-- @return: Privater Schlüsselteil
+FUN getD : int ** int -> int
+
+-- Verschlüsselt eine Zahl mit dem öffentlichen Schlüssel
+-- @param: Zahl, welche verschlüsselt werden soll.
+-- @param: Öffentlicher Schlüsselteil
+-- @param: Faktor N
+-- @return: Verschlüsselte Zahl
+FUN encrypt : nat ** nat ** nat -> nat
+
+-- Entschlüsselt eine Zahl mit dem privaten Schlüssel
+-- @param: Zahl, welche entschlüsselt werden soll.
+-- @param: Privater Schlüsselteil
+-- @param: Faktor N
+-- @return: Entschlüsselte Zahl
+FUN decrypt : nat ** nat ** nat -> nat
+

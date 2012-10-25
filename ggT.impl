@@ -1,0 +1,24 @@
+IMPLEMENTATION ggT
+
+-- Berechnet den größten gemeinsamen Teiler zweier Zahlen
+-- @param: Zahl x
+-- @param: Zahl y
+-- @return: Zahl z : gemeinsamer größter Teiler
+DEF ggT == \\x, y.
+	IF y=0 THEN x
+	ELSE ggT(y, mod(x,y))
+	FI
+
+-- Berechnet den größten gemeinsamen Teiler nach dem erweiterten euklidschen Algorithmus und liefert zusätzlich zwei Zahlen, für welche gilt: ax + by = ggT(a,b).
+-- @param: Zahl x
+-- @param: Zahl y
+-- @return: Dreier-Tupel d, x, y
+DEF eeA == \\a, b.
+	IF b = 0 THEN (a, 1, 0)
+	
+	ELSE 
+		LET
+			(d,x,y) == eeA(b, mod(a,b))
+		IN
+			(d,y, x - (a/b)*y)
+	FI

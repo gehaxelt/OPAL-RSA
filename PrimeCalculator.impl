@@ -1,0 +1,21 @@
+IMPLEMENTATION PrimeCalculator
+
+
+-- Prüft nach dem Fermatschen Primzahltest, ob die übergebene Zahl eine Primzahl ist. Genau bis 340.
+-- @param: Zahl x
+-- @return: Bool - true, wenn Primzahl ; false, wenn keine.
+DEF isPrime  == \\prime.
+	IF mod(pow(2,prime-1),prime) = 1 THEN true 
+	ELSE false
+	FI
+
+-- Findet die nächst tiefere Primzahl einer Ausgangszahl.
+-- @param: Zahl ab welcher gesucht werden soll
+-- @return: Nächst tiefere Primzahl
+DEF findPrime == \\max.
+	IF max > 1 THEN
+		IF isPrime(max) THEN max
+		ELSE findPrime(max-1)
+		FI
+	ELSE 0
+	FI

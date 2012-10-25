@@ -1,0 +1,14 @@
+SIGNATURE PrimeCalculator
+
+IMPORT Nat COMPLETELY
+IMPORT Bool COMPLETELY
+
+-- Prüft nach dem Fermatschen Primzahltest, ob die übergebene Zahl eine Primzahl ist. Genau bis 340.
+-- @param: Zahl x
+-- @return: Bool - true, wenn Primzahl ; false, wenn keine.
+FUN isPrime : nat  -> bool 
+
+-- Findet die nächst tiefere Primzahl einer Ausgangszahl.
+-- @param: Zahl ab welcher gesucht werden soll
+-- @return: Nächst tiefere Primzahl
+FUN findPrime : nat -> nat
